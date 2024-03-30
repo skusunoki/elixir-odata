@@ -9,7 +9,7 @@ defmodule OData.Mixfile do
      deps: deps(),
      test_coverage: [tool: ExCoveralls],
      preferred_cli_env: [
-       "coveralls": :test,
+       coveralls: :test,
        "coveralls.detail": :test,
        "coveralls.post": :test
      ],
@@ -19,8 +19,8 @@ defmodule OData.Mixfile do
 
   defp deps do
     [
-      {:httpoison, "~> 0.10"},
-      {:poison, "~> 2.0 or ~> 3.0"},
+      {:httpoison, "~> 2.0"},
+      {:poison, "~> 5.0"},
       {:excoveralls, "~> 0.5", only: :test},
       {:earmark, "~> 1.0", only: :dev},
       {:ex_doc, "~> 0.13", only: :dev},
@@ -28,7 +28,7 @@ defmodule OData.Mixfile do
       {:credo, "~> 0.3", only: :dev},
       {:dogma, "~> 0.1", only: :dev},
       {:bypass, "~> 0.1", only: :test},
-      {:inch_ex, "~> 0.5", only: :docs}
+      {:inch_ex, "~> 2.0", only: :docs}
     ]
   end
 
