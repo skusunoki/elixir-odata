@@ -11,7 +11,7 @@ defmodule OData do
   @spec build_query(String.t()) :: Query.t()
   @spec build_query(String.t(), String.t()) :: Query.t()
   defdelegate build_query(entity), to: Query, as: :build
-  defdelegate build_query(entity, service_root), to: Query, as: :build
+  def build_query(entity, service_root), do: Query.build( service_root, entity )
 
   @doc """
 
