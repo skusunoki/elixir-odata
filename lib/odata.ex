@@ -9,6 +9,7 @@ defmodule OData do
   alias OData.{Request, Response, HTTP, Query}
 
   defdelegate build_query(entity), to: Query, as: :build
+  defdelegate build_query(service_root, entity), to: Query, as: :build
 
   @spec set_query_params( Query.t, Keyword.t ) :: Query.t
   defdelegate set_query_params(query, params), to: Query, as: :set_params
