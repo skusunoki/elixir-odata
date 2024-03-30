@@ -15,7 +15,7 @@ defmodule OData.Request do
   @doc """
   Builds a request from a query and URL.
   """
-  @spec build(String.t, String.t) :: Request.t
+  @spec build(OData.Query.t, String.t) :: Request.t
   def build(query, url), do: %Request{url: url, query: query}
 
   @doc """

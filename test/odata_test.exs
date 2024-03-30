@@ -3,7 +3,7 @@ defmodule OdataTest do
   use ExUnit.Case
 
   setup do
-    bypass = Bypass.open
+    bypass = Bypass.open()
     {:ok, people_json} = File.read("test/support/people.json")
     url = "http://localhost:#{bypass.port}/dummy"
     {:ok, %{

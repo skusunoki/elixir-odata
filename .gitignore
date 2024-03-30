@@ -20,3 +20,5 @@ watcher.sh
 
 .tool-versions
 docs/
+
+.vscode

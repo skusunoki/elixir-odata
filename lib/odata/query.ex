@@ -56,7 +56,7 @@ defmodule OData.Query do
   @doc """
   Set the params for the query all at once, eg. top, skip.
   """
-  @spec set_params(Query.t, Keyword.t) :: Query.t
+  @spec set_params(Query.t, Keyword.t | []) :: Query.t
   def set_params(%Query{params: params} = query, new_params)
   when is_list(new_params) do
     new_params = new_params |> Keyword.take(@valid_params) |> Enum.into(%{})

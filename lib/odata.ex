@@ -4,12 +4,15 @@ defmodule OData do
   See the README.
   """
 
-  @typep call_result :: {:ok, Response.t} | {:error, any}
+  @typep call_result :: {:ok, OData.Response.t()} | {:error, any}
 
   alias OData.{Request, Response, HTTP, Query}
 
   defdelegate build_query(entity), to: Query, as: :build
+
+  @spec set_query_params( Query.t, Keyword.t ) :: Query.t
   defdelegate set_query_params(query, params), to: Query, as: :set_params
+  @spec build_request(Query.t, String.t) :: Request.t
   defdelegate build_request(query, url), to: Request, as: :build
 
   @doc """
@@ -29,11 +32,11 @@ defmodule OData do
     end
   end
 
-  @spec call(String.t, String.t, list) :: call_result
+  @spec call(String.t, String.t, Keyword.t) :: call_result
   def call(entity, url, params \\ [])
   when is_binary(entity) and is_binary(url) and is_list(params) do
     entity
-    |> build_query
+    |> build_query()
     |> set_query_params(params)
     |> build_request(url)
     |> call

@@ -16,9 +16,9 @@ defmodule OData.Response do
   @doc """
   Build a response from an HTTP response.
   """
-  @spec build(String.t) :: {:ok, Response.t} | {:error, any}
+  @spec build(String.t) :: {:ok, OData.Response.t} | {:error, any}
   def build(body) when is_binary(body) do
-    case Poison.decode(body) do
+    case Poison.decode!(body) do
       %{
         "value" => value,
         "@odata.nextLink" => next_link,

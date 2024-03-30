@@ -23,12 +23,13 @@ defmodule OData.Mixfile do
       {:poison, "~> 5.0"},
       {:excoveralls, "~> 0.5", only: :test},
       {:earmark, "~> 1.0", only: :dev},
-      {:ex_doc, "~> 0.13", only: :dev},
-      {:dialyxir, "~> 0.3", only: :dev},
-      {:credo, "~> 0.3", only: :dev},
+      {:ex_doc, "~> 0.31", only: :dev},
+      {:dialyxir, "~> 1.4", only: :dev},
+      {:credo, "~> 1.7", only: :dev},
       {:dogma, "~> 0.1", only: :dev},
-      {:bypass, "~> 0.1", only: :test},
-      {:inch_ex, "~> 2.0", only: :docs}
+      {:bypass, "~> 2.1", only: :test},
+      {:inch_ex, "~> 2.0", only: :docs},
+      {:plug_cowboy, "~> 2.0"}
     ]
   end
 
