@@ -1,6 +1,7 @@
 defmodule OdataTest do
 
   use ExUnit.Case
+  doctest(OData)
 
   setup do
     bypass = Bypass.open()
