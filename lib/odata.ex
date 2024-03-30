@@ -1,18 +1,27 @@
 defmodule OData do
-
   @moduledoc """
   See the README.
   """
-
   @typep call_result :: {:ok, OData.Response.t()} | {:error, any}
-
   alias OData.{Request, Response, HTTP, Query}
 
-  defdelegate build_query(entity), to: Query, as: :build
-  defdelegate build_query(service_root, entity), to: Query, as: :build
+  @doc """
 
+  """
+  @spec build_query(String.t()) :: Query.t()
+  @spec build_query(String.t(), String.t()) :: Query.t()
+  defdelegate build_query(entity), to: Query, as: :build
+  defdelegate build_query(entity, service_root), to: Query, as: :build
+
+  @doc """
+
+  """
   @spec set_query_params( Query.t, Keyword.t ) :: Query.t
   defdelegate set_query_params(query, params), to: Query, as: :set_params
+
+  @doc """
+
+  """
   @spec build_request(Query.t, String.t) :: Request.t
   defdelegate build_request(query, url), to: Request, as: :build
 
